@@ -1,8 +1,7 @@
 import lodashGet from "lodash.get";
 import { AstSerializer } from "./ast.js";
 
-class AttributeSerializer {
-	static dedupeAttributes(attrs) {
+class AttributeSerializer {static dedupeAttributes(attrs) {
 		// Merge multiple class attributes into a single one
 		let merged = {
 			style: {

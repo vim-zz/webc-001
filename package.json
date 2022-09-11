@@ -14,10 +14,7 @@
   "engines": {
     "node": ">=14"
   },
-	"funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/11ty"
-  },
+	"funding": {"type": "opencollective", "url": "https://opencollective.com/11ty"},
 	"keywords": [
 		"web-components",
 		"custom-elements"

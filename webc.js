@@ -9,13 +9,10 @@ class WebC {
 		let { file, input, inputMode } = options;
 
 		this.inputMode = inputMode || "fs";
-		this.customTransforms = {};
-		this.customHelpers = {};
+		this.customTransforms = {}; this.customHelpers = {};
 		this.globalComponents = {};
 
-		if(file) {
-			this.filePath = file;
-		}
+		if(file) {this.filePath = file; }
 		if(input) {
 			this.rawInput = input;
 		}
@@ -26,8 +23,8 @@ class WebC {
 	}
 
 	setInputPath(file) {
-		this.filePath = file;
-		this.astOptions.filePath = file;
+			this.filePath = file;
+			this.astOptions.filePath = file;
 	}
 
 	setContent(input, filePath) {
@@ -40,7 +37,7 @@ class WebC {
 
 	getRenderingMode(content) {
 		if(!content.startsWith("<!doctype") && !content.startsWith("<html")) {
-			return "component";
+				return "component";
 		}
 
 		return "page";

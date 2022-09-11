@@ -40,7 +40,7 @@ automations:
 #          color: green
   mark_large_size_pr:
     if:
-      - {{ checks.size.is.large  }}
+      - {{ checks.size.is.large }}
     run:
       - action: add-labels@v1
         args:
@@ -70,10 +70,3 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['formatting']
- # add_context_for_large_pr:
- #   if:
- #     - {{ checks.size.is.large or checks.size.is.xlarge }}
- #   run: 
- #     - action : add-comment@v1
- #       args:
- #         comment: Estimated {{ checks.review.etr }} minutes to review

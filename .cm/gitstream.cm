@@ -31,7 +31,7 @@ automations:
           labels: [size_big]
   approve_docs:
     if:
-      - {{ checks.filetypes.is.docs }}
+      - {{ checks.files.are.docs }}
     run:
       - action: approve@v1
       - action : add-labels@v1
@@ -39,7 +39,7 @@ automations:
           labels: ['non-code']
   approve_images:
     if:
-      - {{ checks.filetypes.is.images }}
+      - {{ checks.files.are.images }}
     run:
       - action: approve@v1
       - action : add-labels@v1

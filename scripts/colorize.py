@@ -95,6 +95,7 @@ class ColorizeTestCase(unittest.TestCase):
         print("")
         [print(random_color("banana")) for _ in range(len(colors()))]
 
+
     def test_strip(self):
         print("\nwith color:")
         colored = [random_color("banana rama !@#$%^&*()") for _ in range(len(colors()))]

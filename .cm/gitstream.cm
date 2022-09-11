@@ -62,14 +62,14 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['non-code']
- approve_reformatting:
-   if:
-     - {{ checks.change.is.formatting_only }}
-   run: 
-     - action : approve@v1
-     - action : add-labels@v1
-       args:
-         labels: ['formatting']
+  approve_reformatting:
+    if:
+      - {{ checks.change.is.formatting_only }}
+    run: 
+      - action : approve@v1
+      - action : add-labels@v1
+        args:
+          labels: ['formatting']
  # add_context_for_large_pr:
  #   if:
  #     - {{ checks.size.is.large or checks.size.is.xlarge }}

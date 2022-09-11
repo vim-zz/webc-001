@@ -36,10 +36,7 @@ class AstSerializer {
 			return prefixer.process(content);
 		});
 
-		this.setTransform(AstSerializer.transformTypes.RENDER, async (content, component, data) => {
-			let fn = ModuleScript.getModule(content, this.filePath);
-			let context = Object.assign({}, this.helpers, data, this.globalData);
-			return fn.call(context);
+		this.setTransform(AstSerializer.transformTypes.RENDER, async (content, component, data) => {let fn = ModuleScript.getModule(content, this.filePath); let context = Object.assign({}, this.helpers, data, this.globalData); return fn.call(context);
 		});
 
 		// Component cache
@@ -79,42 +76,30 @@ class AstSerializer {
 	// List from the parse5 serializer
 	// https://github.com/inikulin/parse5/blob/3955dcc158031cc773a18517d2eabe8b17107aa3/packages/parse5/lib/serializer/index.ts
 	static voidElements = {
-		area: true,
-		base: true,
-		basefont: true,
-		bgsound: true,
-		br: true,
-		col: true,
-		embed: true,
-		frame: true,
-		hr: true,
-		img: true,
-		input: true,
-		keygen: true,
-		link: true,
-		meta: true,
-		param: true,
-		source: true,
-		track: true,
-		wbr: true,
-	};
+	area: true,
+	base: true,
+	basefont: true,
+	bgsound: true,
+	br: true,
+	col: true,
+	embed: true,
+	frame: true,
+	hr: true,
+	img: true,
+	input: true,
+	keygen: true,
+	link: true,
+	meta: true,
+	param: true,
+	source: true,
+	track: true,
+	wbr: true,
+};
 
 	setMode(mode = "component") {
 		this.mode = mode; // "page" or "component"
 	}
-
-	setHelper(name, callback) {
-		this.helpers[name] = callback;
-	}
-
-	setTransform(name, callback) {
-		this.transforms[name] = callback;
-	}
-
-	setData(data = {}) {
-		this.globalData = data;
-	}
-
+ setHelper(name, callback) {this.helpers[name] = callback; } setTransform(name, callback) {this.transforms[name] = callback; } setData(data = {}) {this.globalData = data; }
 	isVoidElement(tagName) {
 		return AstSerializer.voidElements[tagName] || false;
 	}
@@ -173,6 +158,8 @@ class AstSerializer {
 		return results;
 	}
 
+
+
 	getTextContent(node) {
 		let content = [];
 		for(let child of node.childNodes || []) {
@@ -182,6 +169,9 @@ class AstSerializer {
 		}
 		return content;
 	}
+
+
+	
 
 	hasTextContent(node) {
 		return this.getTextContent(node).find(entry => entry.trim().length > 0) !== undefined;

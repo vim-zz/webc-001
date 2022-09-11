@@ -21,14 +21,14 @@ automations:
     run:
       - action: add-labels@v1
         args:
-          labels: [size:ok]
+          labels: [size_ok]
   mark_large_size_pr:
     if:
       - {{ checks.size.is.large }}
     run:
       - action: add-labels@v1
         args:
-          labels: [size:big]
+          labels: [size_big]
   approve_docs:
     if:
       - {{ checks.filetypes.is.docs }}

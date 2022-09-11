@@ -1,0 +1,6 @@
+<script webc:type="render" webc:is="style" webc:root webc:scoped>
+function(attrs) {
+return `/* CSS */
+.selector {}`;
+}
+</script>

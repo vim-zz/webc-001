@@ -6,6 +6,7 @@ from six import string_types
 
 
 def black(string):
+    
     return "\033[0;30m" + string + "\033[0m"
 
 def dark_gray(string):
@@ -58,9 +59,7 @@ def default(string):
 
 
 def colors(notlist=[]):
-    all_colors = [blue, light_blue, green, 
-            light_green, cyan, light_cyan, red, light_red, 
-            purple, light_purple, brown, yellow, light_gray]
+    all_colors = [blue, light_blue, green, light_green, cyan, light_cyan, red, light_red, purple, light_purple, brown, yellow, light_gray]
     # dark_gray and black manually removed from list
     for single in notlist:
         if single in all_colors:
@@ -89,10 +88,10 @@ def strip_colors(s):
 class ColorizeTestCase(unittest.TestCase):
     def test_colors(self):
         print("")
-        [print(fn("banana")) for fn in colors()]
+        [print( fn("banana") ) for fn in colors()]
 
-    def test_random_color(self):
-        print("")
+    def test_random_color( self ):
+        print( "" )
         [print(random_color("banana")) for _ in range(len(colors()))]
 
     def test_strip(self):

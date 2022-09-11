@@ -4,11 +4,10 @@ import { CssPrefixer } from "../src/css.js";
 test("Selector tests", t => {
 	let c = new CssPrefixer("my-prefix");
 	
-	t.is(c.process(""), "");
-	t.is(c.process("div {}"), ".my-prefix div{}");
-	t.is(c.process("* {}"), ".my-prefix *{}"); /* huh? */
-	t.is(c.process("*.warning {}"), ".my-prefix *.warning{}");
-	t.is(c.process("* [lang^=en] {}"), ".my-prefix * [lang^=en]{}");
+	     t.is(c.process(""), ""); t.is(c.process("div {}"), ".my-prefix div{}");
+	     t.is(c.process("* {}"), ".my-prefix *{}"); /* huh? */
+	     t.is(c.process("*.warning {}"), ".my-prefix *.warning{}");
+	     t.is(c.process("* [lang^=en] {}"), ".my-prefix * [lang^=en]{}");
 	t.is(c.process(":before {}"), ".my-prefix :before{}");
 });
 

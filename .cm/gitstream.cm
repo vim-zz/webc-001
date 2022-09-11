@@ -1,7 +1,13 @@
-# -*- mode: yaml -*-
 manifest:
   version: 1.0
 
+# Define condition under the `checks` section, each check consists of
+# an expression. The checks results are evalauated and used as conditions 
+# for the next section `automations`. 
+# Checks expressions are wrapped with double curly braces and includes a
+# context variable like `files` and filter like `length`.
+# Filters are essentially functions that can be applied to variables. They 
+# are called with a pipe operator (|) and can take arguments.
 checks:
   files:
     are:
@@ -9,34 +15,65 @@ checks:
       images: {{ files | allImages }}
   size:
     is:
-      xsmall: {{ branch.diff.size <= 5 }}
-      small: {{ branch.diff.size > 5 and branch.diff.size <= 20 }}
-      medium: {{ branch.diff.size > 20 and branch.diff.size <= 100 }}
-      large: {{ branch.diff.size > 100 and branch.diff.size <= 200 }}
-      xlarge: {{ branch.diff.size > 200 }}
+      normal: {{ branch.diff.size <= 100 }}
+      large: {{ branch.diff.size > 100 }}
   change:
     is:
       formatting_only: {{ source.diff.files | allFormattingChange }}
+      
+#  review:
+#    etr: {{ branch | estimatedReviewTime }}
 
+# The `automations` section include the list of automation that applies 
+# for the repo in which gitStream is installed. 
+# Each autaomtion has `if` key with a list of the necessary condtions and
+# a `run` key with a list of all actions. All the listed condtions need to  
+# pass in order for the following actions to be executed.
 automations:
-  mark_one:
+  mark_normal_size_pr:
     if:
-      - {{ checks.size.is.xsmall }}
+      - {{ checks.size.is.normal }}
     run:
       - action: add-labels@v1
         args:
-          labels: [xsmall]
-  mark_another:
+          labels: [size:ok]
+#          color: green
+  mark_large_size_pr:
     if:
-      - {{ checks.size.is.xsmall }}
+      - {{ checks.size.is.large  }}
     run:
       - action: add-labels@v1
         args:
-          labels: [small_or_xsmall]
-  mark_fmt:
+          labels: [size:big]
+#          color: red
+  approve_docs:
     if:
-      - {{ checks.change.is.formatting_only }}
+      - {{ checks.filetypes.is.docs }}
     run:
-      - action: add-labels@v1
+      - action: approve@v1
+      - action : add-labels@v1
         args:
-          labels: [fmt]
+          labels: ['non-code']
+  approve_images:
+    if:
+      - {{ checks.filetypes.is.images }}
+    run:
+      - action: approve@v1
+      - action : add-labels@v1
+        args:
+          labels: ['non-code']
+ approve_reformatting:
+   if:
+     - {{ checks.change.is.formatting_only }}
+   run: 
+     - action : approve@v1
+     - action : add-labels@v1
+       args:
+         labels: ['formatting']
+ # add_context_for_large_pr:
+ #   if:
+ #     - {{ checks.size.is.large or checks.size.is.xlarge }}
+ #   run: 
+ #     - action : add-comment@v1
+ #       args:
+ #         comment: Estimated {{ checks.review.etr }} minutes to review

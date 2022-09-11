@@ -5,7 +5,7 @@ manifest:
 checks:
   size:
     is:
-      small: {{ branch.diff.size > 5 and branch.diff.size <= 20 }}
+      small: {{ branch.diff.size > 5 and }}
       
 automations:
   mark_good_pr:

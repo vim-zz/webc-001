@@ -1,5 +1,5 @@
 import fs from "fs";
-import fastglob from "fast-glob";
+import fastglob from 'fast-glob';
 import path from "path";
 import { parse } from "parse5";
 import { AstSerializer } from "./src/ast.js";

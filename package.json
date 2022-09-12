@@ -4,12 +4,14 @@
 	"description": "Single File Web Components",
 	"main": "webc.js",
 	"type": "module",
+
 	"scripts": {
 		"test": "npx ava"
 	},
 	"publishConfig": {
     "access": "public"
   },
+
 	"license": "MIT",
   "engines": {
     "node": ">=14"
@@ -22,6 +24,7 @@
 		"web-components",
 		"custom-elements"
 	],
+	
 	"author": {
     "name": "Zach Leatherman",
     "email": "zachleatherman@gmail.com",

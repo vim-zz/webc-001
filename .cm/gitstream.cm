@@ -45,4 +45,11 @@ automations:
           approvals: 2
       - action : add-labels@v1
         args:
+          labels: ['high-complexity-pr']
+  label_medium_complexity:
+    if:
+      - {{ checks.complexity.by.many_files or checks.complexity.by.review_time or checks.complexity.by.sensetive }}
+    run:
+      - action : add-labels@v1
+        args:
           labels: ['complex-pr']

@@ -14,7 +14,7 @@ checks:
   complexity:
    by:
       many_files: {{ files | length >= 10 }}
-      review_time: {{ branch | estimatedReviewTime >= 20 }}
+      review_time: {{ branch | estimatedReviewTime >= 1 }}
       sensetive: {{ files | filterListRegex('^core\/') }}
   change:
     is:

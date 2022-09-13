@@ -25,6 +25,7 @@ class WebC {
 		};
 	}
 
+
 	setInputPath(file) {
 		this.filePath = file;
 		this.astOptions.filePath = file;

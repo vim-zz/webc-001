@@ -18,6 +18,7 @@ class AttributeSerializer {
 			}
 		};
 
+
 		for(let j = 0, k = attrs.length; j<k; j++) {
 			let {name, value} = attrs[j];
 			if(merged[name]) {

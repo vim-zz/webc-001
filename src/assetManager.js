@@ -2,7 +2,7 @@ class AssetManager {
 	constructor(depGraph) {
 		this.graph = depGraph;
 	}
-
+ 
 	get orderedComponentList() {
 		if(!this._ordered) {
 			this._ordered = this.graph.overallOrder().reverse();

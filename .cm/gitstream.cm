@@ -15,7 +15,7 @@ checks:
    by:
       many_files: {{ files | length >= 10 }}
       review_time: {{ branch | estimatedReviewTime >= 1 }}
-      sensetive: {{ files | filterListRegex('^core\/') }}
+      sensetive: {{ files | filterListRegex('core\/') | length > 0}}
   change:
     is:
       formatting_only: {{ source.diff.files | allFormattingChange }}

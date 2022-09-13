@@ -27,9 +27,7 @@ checks:
   change:
     is:
       formatting_only: {{ source.diff.files | allFormattingChange }}
-  # review:
-  #   etr: {{ branch | estimatedReviewTime }}
-
+  
 # The `automations` section include the list of automation that applies 
 # for the repo in which gitStream is installed. 
 # Each autaomtion has `if` key with a list of the necessary condtions and
@@ -54,10 +52,10 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['formatting']
-  # add_context:
-  #   if:
-  #     - true
-  #   run: 
-  #     - action : add-comment@v1
-  #       args:
-  #         comment: Estimated {{ checks.review.etr }} minutes to review
+  add_context:
+    if:
+      - true
+    run: 
+      - action : add-comment@v1
+        args:
+          comment: Estimated {{ branch | estimatedReviewTime }} minutes to review

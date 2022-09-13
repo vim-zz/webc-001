@@ -6,7 +6,7 @@ class Streams {
 		this.buckets = buckets;
 		this.started = false;
 	}
-
+ 
 	setBuckets(buckets) {
 		if(this.started) {
 			throw new Error("You can’t setBuckets after streaming has already started.");

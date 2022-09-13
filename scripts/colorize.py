@@ -5,6 +5,9 @@ from random import choice
 from six import string_types
 
 
+
+
+
 def black(string):
     return "\033[0;30m" + string + "\033[0m"
 

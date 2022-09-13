@@ -5,7 +5,7 @@ class ModuleScript {
 		const AsyncFunction = (async function () {}).constructor;
 		return new AsyncFunction(`return ${content};`);
 	}
-
+ 
 	static getModule(content, filePath) {
 		let m = new Module();
 		// m.paths = module.paths;

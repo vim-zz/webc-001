@@ -9,6 +9,7 @@ class AssetManager {
 		}
 		return this._ordered;
 	}
+	 
 
 	getOrderedAssets(assetObject) {
 		let assets = new Set();

@@ -6,9 +6,12 @@ import { WebC } from "../webc.js";
 import { Path } from "./path.js";
 import { AssetManager } from "./assetManager.js";
 import { CssPrefixer } from "./css.js";
+
 import { AttributeSerializer } from "./attributeSerializer.js";
+
 import { ModuleScript } from "./moduleScript.js";
 import { Streams } from "./streams.js";
+
 
 class AstSerializer {
 	constructor(options = {}) {
@@ -183,15 +186,22 @@ class AstSerializer {
 		return content;
 	}
 
+
 	hasTextContent(node) {
 		return this.getTextContent(node).find(entry => entry.trim().length > 0) !== undefined;
 	}
+
 
 	getScopedStyleHash(component, filePath) {
 		let prefix = "w";
 		let hashLength = 8;
 		let hash = createHash("sha256");
 		let body = this.findElement(component, "body");
+
+ 
+
+
+
 
 		// <style webc:scoped> must be nested at the root
 		let styleNodes = this.findAllChildren(body, "style", [AstSerializer.attrs.SCOPED]);

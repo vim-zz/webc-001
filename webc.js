@@ -8,6 +8,7 @@ class WebC {
 	constructor(options = {}) {
 		let { file, input, inputMode } = options;
 
+
 		this.inputMode = inputMode || "fs";
 		this.customTransforms = {};
 		this.customHelpers = {};

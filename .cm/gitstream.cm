@@ -12,13 +12,14 @@ manifest:
 # are called with a pipe operator (|) and can take arguments.
 checks:
   complexity:
-   by:
+    by:
       many_files: {{ files | length >= 10 }}
-      review_time: {{ branch | estimatedReviewTime >= 1 }}
-      sensetive: {{ files | filterListRegex('core\/') | length > 0}}
+      review_time: {{ branch | estimatedReviewTime >= 20 }}
   change:
     is:
       formatting_only: {{ source.diff.files | allFormattingChange }}
+      docs_only: {{ files | allDocs }}
+      tests_only: {{ files | allTests }}
   
 # The `automations` section include the list of automation that applies 
 # for the repo in which gitStream is installed. 
@@ -26,29 +27,30 @@ checks:
 # a `run` key with a list of all actions. All the listed condtions need to  
 # pass in order for the following actions to be executed.
 automations:
-  approve_reformatting:
+  mark_formatting:
     if:
       - {{ checks.change.is.formatting_only }}
     run: 
-      - action : approve@v1
       - action : add-labels@v1
         args:
           labels: ['formatting']
-  double_review:
+  mark_docs:
     if:
-      - {{ checks.complexity.by.many_files }}
-      - {{ checks.complexity.by.review_time }}
-      - {{ checks.complexity.by.sensetive }}
-    run:
-      - action: set-required-approvals@v1
-        args:
-          approvals: 2
+      - {{ checks.change.is.formatting_only }}
+    run: 
       - action : add-labels@v1
         args:
-          labels: ['high-complexity-pr']
-  label_medium_complexity:
+          labels: ['docs']
+  mark_tests:
     if:
-      - {{ checks.complexity.by.many_files or checks.complexity.by.review_time or checks.complexity.by.sensetive }}
+      - {{ checks.change.is.formatting_only }}
+    run: 
+      - action : add-labels@v1
+        args:
+          labels: ['tests']          
+  mark_complex_pr:
+    if:
+      - {{ checks.complexity.by.many_files or checks.complexity.by.review_time }}
     run:
       - action : add-labels@v1
         args:

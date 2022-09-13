@@ -11,19 +11,11 @@ manifest:
 # Filters are essentially functions that can be applied to variables. They 
 # are called with a pipe operator (|) and can take arguments.
 checks:
-  pr:
-    is: 
-      bot: {{ branch.name | includes(['pr-bot-v']) }}
-  files:
-    are:
-      only_config: {{ files | allExtensions(['yml', 'yaml', 'json'])}}
-  size:
-    is:
-      xsmall: {{ branch.diff.size <= 5 }}
-      small: {{ branch.diff.size > 5 and branch.diff.size <= 20 }}
-      medium: {{ branch.diff.size > 20 and branch.diff.size <= 100 }}
-      large: {{ branch.diff.size > 100 and branch.diff.size <= 200 }}
-      xlarge: {{ branch.diff.size > 200 }}
+  complexity:
+   by:
+      many_files: {{ files | length >= 10 }}
+      review_time: {{ branch | estimatedReviewTime >= 20 }}
+      sensetive: {{ files | filterListRegex('^core\/') }}
   change:
     is:
       formatting_only: {{ source.diff.files | allFormattingChange }}
@@ -34,16 +26,6 @@ checks:
 # a `run` key with a list of all actions. All the listed condtions need to  
 # pass in order for the following actions to be executed.
 automations:
-  merge_bot_release:
-    if:
-      - {{ checks.pr.is.bot }}
-      - {{ checks.files.are.only_config }}
-    run: 
-      - action : approve@v1
-      - action : merge@v1
-      - action : add-labels@v1
-        args:
-          labels: ['bot-release']
   approve_reformatting:
     if:
       - {{ checks.change.is.formatting_only }}
@@ -52,10 +34,15 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['formatting']
-  add_context:
+  double_review:
     if:
-      - true
-    run: 
-      - action : add-comment@v1
+      - {{ checks.complexity.by.many_files }}
+      - {{ checks.complexity.by.review_time }}
+      - {{ checks.complexity.by.sensetive }}
+    run:
+      - action: set-required-approvals@v1
         args:
-          comment: Estimated {{ branch | estimatedReviewTime }} minutes to review
+          approvals: 2
+      - action : add-labels@v1
+        args:
+          labels: ['complex-pr']

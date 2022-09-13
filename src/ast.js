@@ -12,10 +12,7 @@ import { Streams } from "./streams.js";
 
 class AstSerializer {
 	constructor(options = {}) {
-		let { filePath } = Object.assign({
-			filePath: undefined,
-		}, options);
-
+		let { filePath } = Object.assign({filePath: undefined, }, options);
 		// controls whether or not doctype, html, body are prepended to content
 		this.mode = "component";
 
@@ -30,11 +27,7 @@ class AstSerializer {
 		this.helpers = {};
 
 		// transform scoped CSS with a hash prefix
-		this.setTransform(AstSerializer.transformTypes.SCOPED, (content, component) => {
-			let prefixer = new CssPrefixer(component.scopedStyleHash);
-			prefixer.setFilePath(component.filePath);
-			return prefixer.process(content);
-		});
+		this.setTransform(AstSerializer.transformTypes.SCOPED, (content, component) => {let prefixer = new CssPrefixer(component.scopedStyleHash); prefixer.setFilePath(component.filePath); return prefixer.process(content); });
 
 		this.setTransform(AstSerializer.transformTypes.RENDER, async (content, component, data) => {
 			let fn = ModuleScript.getModule(content, this.filePath);
@@ -45,7 +38,6 @@ class AstSerializer {
 		// Component cache
 		this.componentMap = {};
 		this.components = {};
-
 		this.hashOverrides = {};
 
 		this.globalData = {};
@@ -70,7 +62,6 @@ class AstSerializer {
 		SCOPED: "webc:scoped", // css scoping
 		HTML: "@html",
 	};
-
 	static transformTypes = {
 		RENDER: "render",
 		SCOPED: "css:scoped",
@@ -83,16 +74,7 @@ class AstSerializer {
 		base: true,
 		basefont: true,
 		bgsound: true,
-		br: true,
-		col: true,
-		embed: true,
-		frame: true,
-		hr: true,
-		img: true,
-		input: true,
-		keygen: true,
-		link: true,
-		meta: true,
+		br: true, col: true, embed: true, frame: true, hr: true, img: true, input: true, keygen: true, link: true, meta: true,
 		param: true,
 		source: true,
 		track: true,

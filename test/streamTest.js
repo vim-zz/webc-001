@@ -11,8 +11,6 @@ async function getStreamChunks(readableStream) {
 		readableStream.on("data", (chunk) => {
 			data.push(chunk.toString());
 		});
-		
-
 		readableStream.on("error", (error) => {
 			reject(error);
 		});
@@ -29,6 +27,8 @@ async function testGetStreamResultFor(webc, components, slots, data) {
 		components,
 		data
 	});
+
+	// 1 + 1
 
 	return {
 		chunks: {

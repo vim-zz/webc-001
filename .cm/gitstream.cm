@@ -41,7 +41,7 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['docs']
-      # - action : merge@v1
+      - action : merge@v1
   mark_tests:
     if:
       - {{ checks.change.is.tests_only }}
@@ -49,6 +49,7 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['tests']          
+      - action : approve@v1
   mark_complex_pr:
     if:
       - {{ checks.complexity.by.many_files or checks.complexity.by.review_time }}

@@ -42,6 +42,8 @@ automations:
         args:
           labels: ['docs']
       - action : merge@v1
+        args:
+          squash_on_merge: true
   mark_tests:
     if:
       - {{ checks.change.is.tests_only }}

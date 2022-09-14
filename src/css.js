@@ -5,9 +5,7 @@ class CssPrefixer {
 		this.prefix = prefix;
 	}
 
-	setFilePath(filePath) {
-		this.filePath = filePath;
-	}
+	setFilePath(filePath) {this.filePath = filePath; }
 
 	parse(str) {
 		return parse(str, {

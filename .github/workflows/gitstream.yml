@@ -28,8 +28,8 @@ on:
       debug_mode:
         description: Run parser in debug mode
         required: false
-        default: true
-
+        default: false
+        
 jobs:
   continuous-merge-rules:
     runs-on: ubuntu-latest

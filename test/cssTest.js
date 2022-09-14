@@ -12,6 +12,8 @@ test("Selector tests", t => {
 	t.is(c.process(":before {}"), ".my-prefix :before{}");
 });
 
+
+
 test("Class, sibling selectors", t => {
 	let c = new CssPrefixer("my-prefix");
 

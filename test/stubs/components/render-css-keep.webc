@@ -1,0 +1,5 @@
+<script webc:type="render" webc:is="style" webc:root webc:keep>
+function(attrs) {
+	return `/* CSS */`;
+}
+</script>

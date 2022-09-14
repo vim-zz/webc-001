@@ -1,0 +1,5 @@
+<p @html="'Paragraph HTML'"></p>
+<p @html="this.variable1"></p>
+<template @html="'Template HTML'"></template>
+<template @html="'Template HTML Keep'" webc:keep></template>
+<template @html="'Template HTML Nokeep'" webc:nokeep></template>

@@ -1,0 +1,8 @@
+<script webc:type="render" webc:is="style" webc:scoped>
+function() {
+return `/* CSS */
+.selector {
+	color: ${this.color}
+}`;
+}
+</script>

@@ -9,8 +9,8 @@ class CssPrefixer {
 		this.filePath = filePath;
 	}
 
-	parse(str) {
-		return parse(str, {
+
+	parse(str) {return parse(str, {
 			// filename: this.filePath,
 			positions: true
 		})

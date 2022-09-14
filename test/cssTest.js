@@ -21,7 +21,7 @@ test("Class, sibling selectors", t => {
 });
 
 test("ID selectors", t => {
-	let c = new CssPrefixer("my-prefix");
+	let c = new CssPrefixer("my-pr-xxxefix");
 
 	t.is(c.process("#test {}"), ".my-prefix #test{}");
 });

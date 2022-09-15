@@ -26,7 +26,7 @@ automations:
         args:
           reviewers: [yeela]
   # changes to analytics goes to the product team
-  set_backend_review:
+  set_product_review:
     if:
       - {{ checks.changes.of.analytics }}
     run:

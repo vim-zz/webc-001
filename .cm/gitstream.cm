@@ -10,13 +10,13 @@ manifest:
 # context variable like `files` and filter like `length`.
 # Filters are essentially functions that can be applied to variables. They 
 # are called with a pipe operator (|) and can take arguments.
-checks: none
   
 # The `automations` section include the list of automation that applies 
 # for the repo in which gitStream is installed. 
 # Each automation has `if` key with a list of the necessary conditions and
 # a `run` key with a list of all actions. All the listed conditions need to  
 # pass in order for the following actions to be executed.
+
 automations:
   mark_formatting:
     if:

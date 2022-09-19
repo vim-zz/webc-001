@@ -16,6 +16,7 @@ class CssPrefixer {
 		})
 	}
 
+
 	shouldSkipPseudoClass(name) {
 		return {
 			"host-context": true,

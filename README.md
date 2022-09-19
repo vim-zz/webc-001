@@ -22,7 +22,9 @@ It’s available [on npm as `@11ty/webc`](https://www.npmjs.com/package/@11ty/we
 npm install @11ty/webc
 ```
 
-This is an ESM project and as such requires a `"type": "module"` in your `package.json` (or use the `.mjs` file extension).
+This is an ESM project and as such 
+requires a `"type": "module"` in your `package.json` 
+(or use the `.mjs` file extension).
 
 ```js
 import { WebC } from "@11ty/webc";
@@ -493,3 +495,4 @@ p { color: rebeccapurple; }
 </style>
 </template>
 ```
+bababa

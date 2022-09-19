@@ -4,6 +4,8 @@ import path from "path";
 import { parse } from "parse5";
 import { AstSerializer } from "./src/ast.js";
 
+
+
 class WebC {
 	constructor(options = {}) {
 		let { file, input, inputMode } = options;

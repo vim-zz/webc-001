@@ -4,20 +4,20 @@ manifest:
   version: 1.0
 
 # The `automations` section includes a list of automation that applies 
-# for the repo in which gitStream is installed. Each automation has an 
+# to the repo in which gitStream is installed. Each automation has an 
 # `if` key with a list of the necessary assertions, as well as a `run` key with a
 # list of all actions. All the listed assertions need to pass in order 
 # for the following actions to be executed (there is AND relation between conditions).
 
-# Each automation under the `automations` section is indpendent of the others. 
-# Everytime a PR is opened or changed the automation's conditions are evaluated (the `if`). 
+# Each automation under the `automations` section is independent of the others. 
+# Every time a PR is opened or changed, the automation's conditions are evaluated (the `if`). 
 # The actions under `run` are executed one by one if all the conditions pass. 
 
-# Conditions consists of an expression, which are wrapped with double curly braces and 
+# Conditions consists of an expression, which are wrapped with double curly braces, and 
 # includes a context variable like `files` and filter functions like `length`. Filters 
 # functions are essentially functions that can be applied to context variables. They are 
 # called with a pipe operator (|) and can take arguments. Read more on 
-# [Filter fucntions page](https://linear-b.github.io/gitstream-mkdocs/23_gitstream-filters/).
+# [Filter functions page](https://linear-b.github.io/gitstream-mkdocs/23_gitstream-filters/).
 
 automations:
   # This is the name of the automation, the name should meaningful
@@ -55,8 +55,8 @@ automations:
           labels: ['tests']
   mark_complex_pr:
     if:
-      # Its possible to check if either a one of few condtions pass (OR relation) by using
-      # the `or` expression. Here the PR complexity is checked, one conditon for complex PRs  
+      # It's possible to check if either a one of few conditions pass (OR relation) by using
+      # the `or` expression. Here the PR complexity is checked, one condition for complex PRs  
       # is the number of files, checked using the [`length` filter function](https://mozilla.github.io/nunjucks/templating.html#length)
       # OR
       # use the dedictaed filter that calcualtes the estimated review time filter function

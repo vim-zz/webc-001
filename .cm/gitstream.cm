@@ -11,15 +11,11 @@ manifest:
 # Filters are essentially functions that can be applied to variables. They 
 # are called with a pipe operator (|) and can take arguments.
 checks:
-  complexity:
-    by:
-      many_files: {{ files | length >= 10 }}
-      review_time: {{ branch | estimatedReviewTime >= 20 }}
-  change:
-    is:
-      formatting_only: {{ source.diff.files | allFormattingChange }}
-      docs_only: {{ files | allDocs }}
-      tests_only: {{ files | allTests }}
+  many_files: {{ files | length >= 10 }}
+  review_time: {{ branch | estimatedReviewTime >= 20 }}
+  formatting_only: {{ source.diff.files | allFormattingChange }}
+  docs_only: {{ files | allDocs }}
+  tests_only: {{ files | allTests }}
   
 # The `automations` section include the list of automation that applies 
 # for the repo in which gitStream is installed. 
@@ -29,28 +25,28 @@ checks:
 automations:
   mark_formatting:
     if:
-      - {{ checks.change.is.formatting_only }}
+      - {{ checks.formatting_only }}
     run: 
       - action: add-labels@v1
         args:
           labels: ['formatting']
   mark_docs:
     if:
-      - {{ checks.change.is.docs_only }}
+      - {{ checks.docs_only }}
     run: 
       - action: add-labels@v1
         args:
           labels: ['docs']
   mark_tests:
     if:
-      - {{ checks.change.is.tests_only }}
+      - {{ checks.tests_only }}
     run: 
       - action: add-labels@v1
         args:
           labels: ['tests']
   mark_complex_pr:
     if:
-      - {{ checks.complexity.by.many_files or checks.complexity.by.review_time }}
+      - {{ checks.many_files or checks.review_time }}
     run:
       - action : add-labels@v1
         args:

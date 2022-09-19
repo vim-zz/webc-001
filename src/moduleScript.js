@@ -1,4 +1,4 @@
-import { Module } from "module";
+import { Module } from 'module';
 
 class ModuleScript {
 	static evaluateAttribute(content) {
@@ -13,8 +13,7 @@ class ModuleScript {
 		if(!trimmed.startsWith("module.exports = ")) {
 			if(trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
 				content = `module.exports = ${content}`;
-			}
-		}
+			} }
 		m._compile(content, filePath);
 		return m.exports;
 	}

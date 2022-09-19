@@ -4,9 +4,9 @@ import { AstSerializer } from "./ast.js";
 
 const SHORTCUT_FILTER_TYPES_MENU_ITEMS = [
 { title: 'Shortcut Project', id: FILTER_TYPES.PROJECTS },
-{ title: 'Team', id: FILTER_TYPES.TEAMS },
-{ title: 'Epic', id: FILTER_TYPES.SHORTCUT_EPICS },
-{ title: 'Label', id: FILTER_TYPES.SHORTCUT_LABEL }
+{ title: 'Team', id: FILTER_TYPES.TEAMS }
+// { title: 'Epic', id: FILTER_TYPES.SHORTCUT_EPICS },
+// { title: 'Label', id: FILTER_TYPES.SHORTCUT_LABEL }
 ];
 
 

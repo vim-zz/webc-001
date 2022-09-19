@@ -14,7 +14,6 @@ checks:
   many_files: {{ files | length >= 10 }}
   review_time: {{ branch | estimatedReviewTime >= 20 }}
   formatting_only: {{ source.diff.files | allFormattingChange }}
-  docs_only: {{ files | allDocs }}
   tests_only: {{ files | allTests }}
   
 # The `automations` section include the list of automation that applies 
@@ -32,7 +31,7 @@ automations:
           labels: ['formatting']
   mark_docs:
     if:
-      - {{ checks.docs_only }}
+      - {{ files | allDocs }}
     run: 
       - action: add-labels@v1
         args:

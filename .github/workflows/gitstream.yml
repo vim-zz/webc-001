@@ -29,7 +29,7 @@ on:
           default: ''
 
 jobs:
-  continuous-merge-rules:
+  gitstream_workflow_automation:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     name: gitStream workflow automation

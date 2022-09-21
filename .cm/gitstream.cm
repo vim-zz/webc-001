@@ -31,7 +31,7 @@ automations:
     run: 
       - action: add-labels@v1
         args:
-          labels: [ {{ files | filterList(context.exclude) | length }} ]
+          labels: [ {{ context.exclude | length }} ]
   # This is the name of the automation, the name should meaningful
   mark_formatting:
     # the `if` key has a list of conditions

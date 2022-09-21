@@ -19,7 +19,19 @@ manifest:
 # called with a pipe operator (|) and can take arguments. Read more on 
 # [Filter functions page](https://linear-b.github.io/gitstream-mkdocs/23_gitstream-filters/).
 
+context: 
+  exclude:
+    - constants.ts
+    - constants.js
+
 automations:
+  count_files:
+    if:
+      - {{ true }}
+    run: 
+      - action: add-labels@v1
+        args:
+          labels: [ {{ files | filterList(context.exclude) | length }} ]
   # This is the name of the automation, the name should meaningful
   mark_formatting:
     # the `if` key has a list of conditions
@@ -33,6 +45,7 @@ automations:
       - action: add-labels@v1
         args:
           labels: ['formatting']
+      # - action: approve@v1
   mark_docs:
     if:
       # Check for every changed file if is a document file. The allDocs filter checks for 

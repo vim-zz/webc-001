@@ -19,6 +19,9 @@ class AttributeSerializer {
 				value: [],
 				splitDelimiter: ";",
 				joinDelimiter: "; "
+
+
+				
 			},
 			class: {
 				value: [], // de-dupe individual classes

@@ -54,8 +54,11 @@ automations:
   approve_tests:
     if:
       - {{ files | isEveryInListRegex('.*\.md$|.*\.txt$') }}
+      - {{ branch.diff.files_metadata | ratioAdditonsDeletions > 0.80 }}
+
     run: 
       - action: approve@v1
+      - action: add-labels@v1
         args:
           labels: ['only-tests']
   mark_complex_pr:

@@ -75,4 +75,4 @@ automations:
         args:
           comment: |
           1. Estimated {{ branch | estimatedReviewTime }} minutes to review
-          2. ETR >= 20 ? {{ branch | estimatedReviewTime >= 20 }}
+          2. ETR20 {{ branch | estimatedReviewTime >= 20 }}

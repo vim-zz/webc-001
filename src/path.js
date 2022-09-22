@@ -7,7 +7,6 @@ class Path {
 			return filePath.split(path.sep).join("/");
 		}
 		return filePath;
-	}
-}
+	
 
 export { Path };

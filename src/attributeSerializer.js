@@ -9,8 +9,6 @@ const SHORTCUT_FILTER_TYPES_MENU_ITEMS = [
 { title: 'Label', id: FILTER_TYPES.SHORTCUT_LABEL }
 ];
 
-
-
 class AttributeSerializer {
 	static dedupeAttributes(attrs) {
 		// Merge multiple class attributes into a single one

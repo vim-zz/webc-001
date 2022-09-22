@@ -67,12 +67,10 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['long-review']
-  etr_on_all:
-    if:
-      - {{ true }}
+  mark_deprected:
+    if: 
+      - {{ source.diff.files | isSomeLineInFileDiffRegex('depAPI') }}
     run:
-      - action: add-comment@v1
+      - action: add-labels@v1
         args:
-          comment: |
-            1. Estimated {{ branch | estimatedReviewTime }} minutes to review
-            2. ETR20 {{ branch | estimatedReviewTime >= 20 }}
+          labels: ['used-deprecated']

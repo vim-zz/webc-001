@@ -19,20 +19,7 @@ manifest:
 # called with a pipe operator (|) and can take arguments. Read more on 
 # [Filter functions page](https://linear-b.github.io/gitstream-mkdocs/23_gitstream-filters/).
 
-context: 
-  exclude:
-    - constants.ts
-    - constants.js
-
 automations:
-  count_files:
-    if:
-      - {{ true }}
-    run: 
-      - action: add-labels@v1
-        args:
-          labels: [ {{ context.exclude | length | string  }} ]
-  # This is the name of the automation, the name should meaningful
   mark_formatting:
     # the `if` key has a list of conditions
     if:
@@ -80,3 +67,12 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['long-review']
+  etr_on_all:
+    if:
+      - true
+    run:
+      - action: add-comment@v1
+        args:
+          comment: |
+          1. Estimated {{ branch | estimatedReviewTime }} minutes to review
+          2. ETR >= 20 ? {{ branch | estimatedReviewTime >= 20 }}

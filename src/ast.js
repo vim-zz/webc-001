@@ -12,8 +12,6 @@ import { Streams } from "./streams.js";
 
 class AstSerializer {
 	constructor(options = {}) {
-		let { filePath } = Object.assign({
-			filePath: undefined,
 		}, options);
 
 		// controls whether or not doctype, html, body are prepended to content
@@ -21,12 +19,12 @@ class AstSerializer {
 
 		// for error messaging
 		this.filePath = Path.normalizePath(filePath);
-
 		// content transforms
 		this.transforms = {};
 
 		// helper functions are used in @html and render functions
-		// TODO lookup attributes too?
+		// TODO lookup at\
+		tributes too?
 		this.helpers = {};
 
 		// transform scoped CSS with a hash prefix

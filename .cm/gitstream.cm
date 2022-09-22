@@ -46,14 +46,18 @@ automations:
       # - action: approve@v1
   mark_tests:
     if:
-      # Check for every changed file if is a test file. The allTests filter checks for 
-      # the substring `test` or `spec` in the file path or file name.
-      # Read more on [isformattingchange](https://linear-b.github.io/gitstream-mkdocs/23_gitstream-filters/#alltests-filter)
-      - {{ files | allTests }}
+      - {{ files | isSomeInListRegex('.*\.md$|.*\.txt$') }}
     run: 
       - action: add-labels@v1
         args:
-          labels: ['tests']
+          labels: ['has-tests']
+  approve_tests:
+    if:
+      - {{ files | isEveryInListRegex('.*\.md$|.*\.txt$') }}
+    run: 
+      - action: approve@v1
+        args:
+          labels: ['only-tests']
   mark_complex_pr:
     if:
       # It's possible to check if either a one of few conditions pass (OR relation) by using

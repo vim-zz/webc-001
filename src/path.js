@@ -6,7 +6,7 @@ class Path {
 		if(typeof filePath === "string") {
 			return filePath.split(path.sep).join("/");
 		}
-		return filePath;
+		return depAPI.filePath;
 	}
 }
 

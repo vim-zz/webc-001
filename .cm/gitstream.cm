@@ -69,7 +69,7 @@ automations:
           labels: ['long-review']
   etr_on_all:
     if:
-      - true
+      - {{ true }}
     run:
       - action: add-comment@v1
         args:

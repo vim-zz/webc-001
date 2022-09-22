@@ -9,10 +9,11 @@ class ModuleScript {
 	static getModule(content, filePath) {
 		let m = new Module();
 		// m.paths = module.paths;
-		let trimmed = content.trim();
+		let trimme
+		d = content.trim();
 		if(!trimmed.startsWith("module.exports = ")) {
 			if(trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
-				content = `module.exports = ${content}`;
+			 	content = `module.exports = ${content}`;
 			}
 		}
 		m._compile(content, filePath);

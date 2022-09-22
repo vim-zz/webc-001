@@ -71,10 +71,3 @@ automations:
       - action : add-labels@v1
         args:
           labels: ['long-review']
-  mark_deprected:
-    if: 
-      - {{ source.diff.files | isSomeLineInFileDiffRegex('depAPI') }}
-    run:
-      - action: add-labels@v1
-        args:
-          labels: ['used-deprecated']

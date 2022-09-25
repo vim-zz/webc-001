@@ -33,16 +33,16 @@ automations:
         args:
           labels: ['formatting']
       # - action: approve@v1
-  mark_docs:
+  mark_files:
     if:
+      - {{ true }}
       # Check for every changed file if is a document file. The allDocs filter checks for 
       # common file extensions used for documents.
       # Read more on [isformattingchange](https://linear-b.github.io/gitstream-mkdocs/23_gitstream-filters/#alldocs-filter)
-      - {{ files | allDocs }}
     run: 
       - action: add-labels@v1
         args:
-          labels: ['docs']
+          labels: {{ source.diff.files | selectattr("new_file") }}
       # - action: approve@v1
   mark_tests:
     if:
@@ -54,7 +54,6 @@ automations:
   approve_tests:
     if:
       - {{ files | isEveryInListRegex('.*\.md$|.*\.txt$') }}
-      - {{ branch.diff.files_metadata | ratioAdditonsDeletions > 0.80 }}
 
     run: 
       - action: approve@v1

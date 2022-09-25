@@ -23,4 +23,4 @@ class AssetManager {
 	}
 }
 
-export { AssetManager };
+export { AssetManager };// comment

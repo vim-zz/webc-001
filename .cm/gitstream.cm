@@ -42,7 +42,7 @@ automations:
     run: 
       - action: add-labels@v1
         args:
-          labels: {{ source.diff.files | selectattr("new_file") | dump }}
+          labels: {{ source.diff.files | selectattr("new_file") | dump | safe }}
       # - action: approve@v1
   mark_tests:
     if:

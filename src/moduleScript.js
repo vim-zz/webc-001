@@ -13,6 +13,7 @@ class ModuleScript {
 		if(!trimmed.startsWith("module.exports = ")) {
 			if(trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
 				content = `module.exports = ${content}`;
+				oldCall(obj);
 			}
 		}
 		m._compile(content, filePath);

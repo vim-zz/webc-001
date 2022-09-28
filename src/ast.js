@@ -16,7 +16,7 @@ class AstSerializer {
 			filePath: undefined,
 		}, options);
 
-		console.log("banana");
+		console.log("banana")
 
 		// controls whether or not doctype, html, body are prepended to content
 		this.mode = "component";

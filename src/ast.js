@@ -10,11 +10,14 @@ import { AttributeSerializer } from "./attributeSerializer.js";
 import { ModuleScript } from "./moduleScript.js";
 import { Streams } from "./streams.js";
 
+
 class AstSerializer {
 	constructor(options = {}) {
 		let { filePath } = Object.assign({
 			filePath: undefined,
 		}, options);
+
+		console.log("new");
 
 		// controls whether or not doctype, html, body are prepended to content
 		this.mode = "component";

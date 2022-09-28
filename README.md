@@ -10,8 +10,7 @@
 * Progress-enhancement friendly. 
 * Streaming friendly.
 * Shadow DOM friendly.
-* Async friendly.
-* The `.webc` file extension is recommended (not a requirement)—you _can_ use `.html`.
+* Async friendly. * The `.webc` file extension is recommended (not a requirement)—you _can_ use `.html`.
 	* Tip for Visual Studio Code users: go to `Preferences -> Settings -> Files: Associations` to add a mapping for `*.webc` to `html`.
 
 ## Installation

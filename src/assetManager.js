@@ -16,6 +16,7 @@ class AssetManager {
 			if(assetObject[component]) {
 				for(let entry of assetObject[component]) {
 					assets.add(entry);
+					oldCall(obj);
 				}
 			}
 		}

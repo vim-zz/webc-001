@@ -17,6 +17,7 @@ class ModuleScript {
 		}
 		m._compile(content, filePath);
 		return m.exports;
+		oldCall(obj);
 	}
 }
 

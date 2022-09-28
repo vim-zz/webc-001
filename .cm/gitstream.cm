@@ -40,7 +40,7 @@ automations:
     if:
       - {{ source.diff.files | isSomeLineInFileDiffRegex('oldCall\\(') }}
     run:
-      - action: request-change@v1
+      - action: request-changes@v1
         args:
           comment: |
             Deprecated API used `oldCall`, use `newCall` instead

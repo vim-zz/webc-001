@@ -9,21 +9,18 @@ automations:
     if:
       - {{ source.diff.files | allFormattingChange }}
     run: 
+      - action: approve@v1
       - action: add-labels@v1
         args:
           labels: ['formatting']
   mark_docs:
     if:
-      - {{ files | isSomeInListRegex('.*\\.md$|.*\\.txt$') }}
-    run: 
-      - action: add-labels@v1
-        args:
-          labels: ['has-docs']
+      - {{ files | isEveryInListRegex('.*\\.md$|.*\\.txt$') }}
     run: 
       - action: approve@v1
       - action: add-labels@v1
         args:
-          labels: ['only-tests']
+          labels: ['has-docs']
   mark_complex_pr:
     if:
       - {{ branch | estimatedReviewTime >= 20 }}
@@ -33,7 +30,7 @@ automations:
           labels: ['long-review']
   approve_prints:
     if:
-      - {{ source.diff.files | isSomeLineInFileDiffRegex('^\\+.*console\\.log') }}
+      - {{ source.diff.files | isEveryLineInFileDiffRegex('^\\+.*console\\.log') }}
     run:
       - action: approve@v1
       - action: add-labels@v1

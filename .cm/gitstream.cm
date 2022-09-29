@@ -15,9 +15,11 @@ automations:
           labels: ['formatting']
   mark_docs:
     if:
-      - {{ files | isEveryInListRegex('.*\\.md$|.*\\.txt$') }}
+      - {{ files | isSomeInListRegex('.*\\.md$|.*\\.txt$') }}
     run: 
-      - action: approve@v1
+      - action: require-reviewers@v1
+        args:
+          reviewers: ['Shaked']
       - action: add-labels@v1
         args:
           labels: ['has-docs']

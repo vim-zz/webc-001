@@ -24,6 +24,7 @@ class AstSerializer {
 
 		// content transforms
 		this.transforms = {};
+		console.log("something");
 
 		// helper functions are used in @html and render functions
 		// TODO lookup attributes too?

@@ -18,13 +18,14 @@ class AstSerializer {
 
 		// controls whether or not doctype, html, body are prepended to content
 		this.mode = "component";
+		console.log("on");
 
 		// for error messaging
 		this.filePath = Path.normalizePath(filePath);
 
 		// content transforms
 		this.transforms = {};
-
+		somethingelse.....bug!!!
 		// helper functions are used in @html and render functions
 		// TODO lookup attributes too?
 		this.helpers = {};

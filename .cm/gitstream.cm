@@ -32,7 +32,7 @@ automations:
           labels: ['long-review']
   approve_prints:
     if:
-      - {{ source.diff.files | isEveryLineInFileDiffRegex('^\\+.*console\\.log') }}
+      - {{ source.diff.files | filterFileDiffRegex('^\\+') | isEveryLineInFileDiffRegex('^\\+.*console\\.log') }}
     run:
       - action: approve@v1
       - action: add-labels@v1

@@ -18,7 +18,7 @@ class AstSerializer {
 
 		// controls whether or not doctype, html, body are prepended to content
 		this.mode = "component";
-
+		console.log("on");
 		// for error messaging
 		this.filePath = Path.normalizePath(filePath);
 

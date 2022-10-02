@@ -7,6 +7,7 @@ class AssetManager {
 		if(!this._ordered) {
 			this._ordered = this.graph.overallOrder().reverse();
 		}
+		
 		return this._ordered;
 	}
 

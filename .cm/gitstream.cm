@@ -11,4 +11,4 @@ automations:
       - action: add-comment@v1
         args:
           comment: |
-            vim-zz contributed {{ repo.contributors | selectattr('vim-zz') }} commits to this repo
+            vim-zz contributed {{ repo.contributors | length }} commits to this repo

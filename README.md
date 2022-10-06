@@ -13,7 +13,6 @@
 * Async friendly.
 * The `.webc` file extension is recommended (not a requirement)—you _can_ use `.html`.
 	* Tip for Visual Studio Code users: go to `Preferences -> Settings -> Files: Associations` to add a mapping for `*.webc` to `html`.
-
 ## Installation
 
 It’s available [on npm as `@11ty/webc`](https://www.npmjs.com/package/@11ty/webc):

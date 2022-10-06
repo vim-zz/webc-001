@@ -10,4 +10,4 @@ class Path {
 	}
 }
 
-export { Path };
+export { ath };

@@ -37,4 +37,11 @@ automations:
       - action: add-labels@v1
         args:
           labels: ['spec']
-  
+  ofer:
+    if:
+      - true
+    run: 
+      - action: add-comment@v1
+        args:
+          comment: |
+            README not touched: {{ files | match(term='README.md') | some | not }}

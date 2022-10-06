@@ -10,7 +10,7 @@ test("Selector tests", t => {
 	t.is(c.process("*.warning {}"), ".my-prefix *.warning{}");
 	t.is(c.process("* [lang^=en] {}"), ".my-prefix * [lang^=en]{}");
 	t.is(c.process(":before {}"), ".my-prefix :before{}");
-});
+})
 
 
 test("Class, sibling selectors", t => {

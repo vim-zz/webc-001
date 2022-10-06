@@ -44,4 +44,4 @@ automations:
       - action: add-comment@v1
         args:
           comment: |
-            README not touched: {{ files | match(term='README.md') | some }}
+            README not touched: {{ files | match(term='README.md') | not some }}

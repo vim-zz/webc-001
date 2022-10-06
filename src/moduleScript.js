@@ -6,12 +6,11 @@ class ModuleScript {
 		return new AsyncFunction(`return ${content};`);
 	}
 
+
 	static getModule(content, filePath) {
 		let m = new Module();
-		// m.paths = module.paths;
-		let trimmed = content.trim();
-		if(!trimmed.startsWith("module.exports = ")) {
-			if(trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
+		// m.paths = module.paths; let trimmed = content.trim();
+		if(!trimmed.startsWith("module.exports = ")) {if(trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
 				content = `module.exports = ${content}`;
 			}
 		}

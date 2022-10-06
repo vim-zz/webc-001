@@ -4,11 +4,37 @@ manifest:
   version: 1.0
 
 automations:
-  contribution:
+  dependencies_update:
     if:
-      - {{ true }}
+      - {{ files | match(list=['package.json', 'package-lock.json']) | every }}
     run:
-      - action: add-comment@v1
+      - action: approve@v1
+      - action: add-labels@v1
         args:
-          comment: |
-            vim-zz contributed {{ repo.contributors | selectattr('ofer affias') }} commits to this repo
+          labels: ['dependencies-update']
+  docs_only:
+    if:
+      - {{ files | allDocs }}
+    run: 
+      - action: approve@v1
+      - action: add-labels@v1
+        args:
+          labels: ['non-code']
+  small_pr:
+    if:
+      - {{ branch.diff.size < 20 }}
+    run: 
+      - action: add-labels@v1
+        args:
+          labels: ['small']
+  spec_update:
+    if:
+      - {{ files | match(term='src/utils/diffParser.js') | some }}    
+    run: 
+      - action: add-reviewers@v1
+        args:
+          reviewers: [vim-zz]
+      - action: add-labels@v1
+        args:
+          labels: ['spec']
+  

@@ -24,18 +24,11 @@ class AstSerializer {
 
 		// content transforms
 		this.transforms = {};
-
 		// helper functions are used in @html and render functions
 		// TODO lookup attributes too?
 		this.helpers = {};
-
 		// transform scoped CSS with a hash prefix
-		this.setTransform(AstSerializer.transformTypes.SCOPED, (content, component) => {
-			let prefixer = new CssPrefixer(component.scopedStyleHash);
-			prefixer.setFilePath(component.filePath);
-			return prefixer.process(content);
-		});
-
+		this.setTransform(AstSerializer.transformTypes.SCOPED, (content, component) => {let prefixer = new CssPrefixer(component.scopedStyleHash); prefixer.setFilePath(component.filePath); return prefixer.process(content); });
 		this.setTransform(AstSerializer.transformTypes.RENDER, async (content, component, data) => {
 			let fn = ModuleScript.getModule(content, this.filePath);
 			let context = Object.assign({}, this.helpers, data, this.globalData);

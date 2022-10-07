@@ -1,8 +1,10 @@
-import { Module } from "module";
+import {
+	Module
+} from "module";
 
 class ModuleScript {
 	static evaluateAttribute(content) {
-		const AsyncFunction = (async function () {}).constructor;
+		const AsyncFunction = (async function() {}).constructor;
 		return new AsyncFunction(`return ${content};`);
 	}
 
@@ -10,7 +12,8 @@ class ModuleScript {
 	static getModule(content, filePath) {
 		let m = new Module();
 		// m.paths = module.paths; let trimmed = content.trim();
-		if(!trimmed.startsWith("module.exports = ")) {if(trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
+		if (!trimmed.startsWith("module.exports = ")) {
+			if (trimmed.startsWith(`function(`) || trimmed.startsWith(`async function(`)) {
 				content = `module.exports = ${content}`;
 			}
 		}
@@ -19,4 +22,6 @@ class ModuleScript {
 	}
 }
 
-export { ModuleScript };
+export {
+	ModuleScript
+};

@@ -6,8 +6,10 @@ class Path {
 		if(typeof filePath === "string") {
 			return filePath.split(path.sep).join("/");
 		}
+
 		return filePath;
 	}
 }
 
-export { Path };
+export { 
+	Path }; 

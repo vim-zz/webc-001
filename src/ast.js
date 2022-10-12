@@ -9,7 +9,6 @@ import { CssPrefixer } from "./css.js";
 import { AttributeSerializer } from "./attributeSerializer.js";
 import { ModuleScript } from "./moduleScript.js";
 import { Streams } from "./streams.js";
-
 class AstSerializer {
 	constructor(options = {}) {
 		let { filePath } = Object.assign({

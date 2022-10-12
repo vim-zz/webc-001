@@ -78,4 +78,4 @@ automations:
       - action : add-label@v1
         args:
           label: 'review-complexity'
-          color: '#238823'
+          color: 0000FF

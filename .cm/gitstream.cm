@@ -78,4 +78,4 @@ automations:
       - action : add-label@v1
         args:
           label: 'review-complexity'
-          color: {{ '0000FF' if false else 'FF0000' }}
+          color: {{ '0000FF' if (files | length == 1) else 'FF0000' }}

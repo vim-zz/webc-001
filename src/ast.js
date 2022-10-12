@@ -15,10 +15,8 @@ class AstSerializer {
 		let { filePath } = Object.assign({
 			filePath: undefined,
 		}, options);
-
 		// controls whether or not doctype, html, body are prepended to content
 		this.mode = "component";
-
 		// for error messaging
 		this.filePath = Path.normalizePath(filePath);
 

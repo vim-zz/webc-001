@@ -78,4 +78,4 @@ automations:
       - action : add-label@v1
         args:
           label: 'review-complexity'
-          color: 0000FF
+          color: {{ '0000FF' if false else 'FF0000' }}

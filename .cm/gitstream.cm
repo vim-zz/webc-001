@@ -77,6 +77,8 @@ automations:
     run:
       - action : add-label@v1
         args:
-          label: 'review-comlexity'
-          color: {{ '#D2222D' if (files | length >= 3) else '#238823' }} 
+          label: 'review-complexity'
+          color: {{ '#D2222D' if complex else '#238823' }} 
 
+
+complex: {{ files | length >= 3 }}

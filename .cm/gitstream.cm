@@ -96,3 +96,18 @@ automations:
         args:
           label: 'short-review'
           color: '#238823'
+
+  catch_deprecated_components:
+    if:
+      # Given the PR code changes, check if a deprecated component is in use
+      - {{ source.diff.files | matchDiffLines(regex='banana') | some }}
+    run:
+      - action: add-label@v1
+        args:
+          label: 'deprecated-component-in-use'
+          color: '#FF0000'
+      - action: request-changes@v1
+        args:
+          comment: |
+            `ContentCard` component is deprecated, use `Card` instead
+

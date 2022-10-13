@@ -100,7 +100,7 @@ automations:
   catch_deprecated_components:
     if:
       # Given the PR code changes, check if a deprecated component is in use
-      - {{ source.diff.files | matchDiffLines(regex='banana') | some }}
+      - {{ source.diff.files | matchDiffLines(regex='import .* ContentCard .* from .@duda-co\\/ui') | some }}
     run:
       - action: add-label@v1
         args:

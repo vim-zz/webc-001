@@ -1,7 +1,6 @@
 # WebC is for Single File Web Components
 
 ## Features
-
 * Framework-independent standalone HTML serializer for generating markup for Web Components.
 	* Expand any HTML element (including custom elements and web components) to HTML with defined conventions from web standards.
 * Compilation tools to aggregate component-level assets (CSS or JS) for critical CSS or client JavaScript.

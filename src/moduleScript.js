@@ -14,6 +14,7 @@ class ModuleScript {
 				content = `module.exports = ${content}`;
 			}
 		}
+		
 		m._compile(content, filePath);
 		return m.exports;
 	}

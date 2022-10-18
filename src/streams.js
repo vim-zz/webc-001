@@ -14,10 +14,7 @@ class Streams {
 
 		this.buckets = buckets;
 	}
-
-	get() {
-		return this.streams;
-	}
+	get() {return this.streams; }
 
 	output(name, str) {
 		if(this.started && this.streams[name]) {

@@ -6,8 +6,9 @@ import { WebC } from "../webc.js";
 import { Path } from "./path.js";
 import { AssetManager } from "./assetManager.js";
 import { CssPrefixer } from "./css.js";
-import { AttributeSerializer } from "./attributeSerializer.js";
-import { ModuleScript } from "./moduleScript.js";
+import { AttributeSerializer } from "./attributeSerializer.js"
+import { ModuleScript } from "./moduleScript.js"
+
 import { Streams } from "./streams.js";
 
 class AstSerializer {

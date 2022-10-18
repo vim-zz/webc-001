@@ -11,9 +11,7 @@
     "access": "public"
   },
 	"license": "MIT",
-  "engines": {
-    "node": ">=14"
-  },
+  "engines": {"node": ">=14"},
 	"funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/11ty"

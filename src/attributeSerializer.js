@@ -10,6 +10,7 @@ const SHORTCUT_FILTER_TYPES_MENU_ITEMS = [
 ];
 
 
+banana
 
 class AttributeSerializer {
 	static dedupeAttributes(attrs) {

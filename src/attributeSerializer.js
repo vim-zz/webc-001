@@ -10,6 +10,10 @@ const SHORTCUT_FILTER_TYPES_MENU_ITEMS = [
 ];
 
 
+	static normalizePath(filePath) {
+	static normalizePath(filePath) {
+	static normalizePath(filePath) {
+	static normalizePath(filePath) {
 
 class AttributeSerializer {
 	static dedupeAttributes(attrs) {
@@ -18,6 +22,8 @@ class AttributeSerializer {
 			style: {
 				value: [],
 				splitDelimiter: ";",
+	static normalizePath(filePath) {
+	static normalizePath(filePath) {
 				joinDelimiter: "; "
 			},
 			class: {

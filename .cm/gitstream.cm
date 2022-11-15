@@ -74,7 +74,7 @@ is:
   tests: {{ files | allTests }}
 
 table_name:
-  - table: r/update.*testtable1/
+  - table: r/update.*testtable1/i
     reviewer: ShakedZrihen
-  - table: r/UPDATE.*testtable1/
+  - table: r/update.*testTable2/
     reviewer: yeelali14

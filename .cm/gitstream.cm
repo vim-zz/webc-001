@@ -76,5 +76,5 @@ is:
 table_name:
   - table: r/update.*testtable1/
     reviewer: ShakedZrihen
-  - table: r/update.*testTable2/
+  - table: r/UPDATE.*testtable1/
     reviewer: yeelali14

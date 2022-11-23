@@ -192,6 +192,8 @@ Child content optionally precompiles using `<slot>` and `[slot]` too.
 
 `components/my-component.webc`:
 
+OFER
+
 ```html
 <p><slot></slot></p>
 ```

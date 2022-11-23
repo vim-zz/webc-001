@@ -19,34 +19,22 @@ manifest:
 # called with a pipe operator (|) and can take arguments. Read more on https://docs.gitstream.cm
 
 automations:
-  # This is the name of the review automation. You can use whatever name, a meaningful name
-  # will help to identify it in the future. Each automation name in this file should be unique.
-  {% for item in table_name %}
-  catch_table_update_{{ loop.index }}:
+  review_ui:
     if:
-      - {{ source.diff.files | matchDiffLines(regex=item.table) | some }}
+      - {{ files | match(regex=r/src\/ui\/.*\.js$/) | some}}
     run:
-      - action: add-label@v1
-        args:
-          label: 'table-update'
-          color: '#0D72FF'
-      - action: add-comment@v1
-        args:
-          comment: |
-            `{{ item.table }}` is detected and requires `{{ item.reviewer }}` approval
       - action: add-reviewers@v1
         args:
-          reviewers: [ {{ item.reviewer }} ]
-  {% endfor %}
-
+          reviewers: [popeye, olive]
+  
   estimated_time_to_review:
     if:
       - true
     run:
       - action : add-label@v1
         args:
-          label: "{{ calc.etr }} min review"
-          color: {{ 'E94637' if (calc.etr >= 20) else ('FBBD10' if (calc.etr >= 5) else '36A853') }}
+          label: "OFER: {{ calc.etr }} min review"
+          color: {{ 'ff00ff' if (calc.etr >= 20) else ('FBBD10' if (calc.etr >= 5) else '00ff00') }}
 
  # safe_changes:
     # The `if` key has a list of conditions, each condition is specified as a Jinja expression

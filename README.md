@@ -57,6 +57,7 @@ let { html, css, js, components } = await page.compile();
 let { html, css, js } = await page.stream();
 ```
 
+
 ### It’s HTML
 
 If this looks familiar, that’s because WebC *is* HTML. These are single file HTML components but don’t require any special element conventions (for example Vue’s single file component uses a top-level `<template>` for markup). Using `<template>` in a WebC file will output 👀 a `<template>` element.

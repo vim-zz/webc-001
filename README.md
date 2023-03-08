@@ -6,7 +6,6 @@
 	* Expand any HTML element (including custom elements and web components) to HTML with defined conventions from web standards.
 * Compilation tools to aggregate component-level assets (CSS or JS) for critical CSS or client JavaScript.
 * Opt-in to scope your component CSS using WebC’s built-in CSS prefixer.
-	* Or, use browser-native Shadow DOM style scoping (requires Declarative Shadow DOM browser support for proper Progressive Enhancement)
 * Progress-enhancement friendly. 
 * Streaming friendly.
 * Shadow DOM friendly.

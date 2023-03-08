@@ -1,0 +1,27 @@
+# -*- mode: yaml -*-
+
+manifest:
+  version: 1.0
+
+automations:
+  {% for item in tables %}
+  # Automation names should be unique, therefore the iteration number postfix
+  catch_deprecated_components_{{ loop.index }}:
+    if:
+      - true
+    run:
+      - action: request-changes@v1
+        args:
+          comment: |
+            1-> {{ source.diff.files | matchDiffLines(regex=r/ALTER TABLE item (DROP|ADD) + COLUMN.*/g) | some }}
+            2-> {{ ALTER TABLE item (DROP|ADD) + COLUMN }}
+
+
+
+    
+  {% endfor %}
+
+# This list includes the deprecated items
+tables:
+  - tableA
+  - tableB

@@ -7,19 +7,7 @@
 * Compilation tools to aggregate component-level assets (CSS or JS) for critical CSS or client JavaScript.
 * Opt-in to scope your component CSS using WebC’s built-in CSS prefixer.
 	* Or, use browser-native Shadow DOM style scoping (requires Declarative Shadow DOM browser support for proper Progressive Enhancement)
-* Progress-enhancement friendly. 
-* Streaming friendly.
-* Shadow DOM friendly.
-* Async friendly.
-* The `.webc` file extension is recommended (not a requirement)—you _can_ use `.html`.
-	* Tip for Visual Studio Code users: go to `Preferences -> Settings -> Files: Associations` to add a mapping for `*.webc` to `html`.
-
-## Installation
-
-It’s available [on npm as `@11ty/webc`](https://www.npmjs.com/package/@11ty/webc):
-
-```
-npm install @11ty/webc
+*xcdccz
 ```
 
 This is an ESM project and as such requires a `"type": "module"` in your `package.json` (or use the `.mjs` file extension).

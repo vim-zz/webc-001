@@ -5,14 +5,7 @@
 * Framework-independent standalone HTML serializer for generating markup for Web Components.
 	* Expand any HTML element (including custom elements and web components) to HTML with defined conventions from web standards.
 * Compilation tools to aggregate component-level assets (CSS or JS) for critical CSS or client JavaScript.
-* Opt-in to scope your component CSS using WebC’s built-in CSS prefixer.
-	* Or, use browser-native Shadow DOM style scoping (requires Declarative Shadow DOM browser support for proper Progressive Enhancement)
-*xcdccz
-```
-
-This is an ESM project and as such requires a `"type": "module"` in your `package.json` (or use the `.mjs` file extension).
-
-```js
+* Opt-in to scope your com123
 import { WebC } from "@11ty/webc";
 ```
 
